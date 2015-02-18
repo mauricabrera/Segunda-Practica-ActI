@@ -1,0 +1,66 @@
+<!DOCTYPE HTML>
+<HTML>
+<header>
+<script src="jquery-1.11.2.min.js"> </script> 
+<script type="text/javascript">
+function ver(){
+$.ajax({     
+ type: "GET",     
+ url: "responder.php", 
+ dataType: "json",  
+ success: function(data){     
+ //do your stuff with the JSON data
+ $("#content_div").append(data.ci);
+ }
+ }); 
+}
+</script>
+</header>
+<body>
+<header>
+<nav>
+<table>
+<tr>
+<td>
+<section>
+<img src="images.png"></img>
+</section></td>
+<td>
+<section>
+<p>Proyecto 1</p>
+</section>
+</td>
+</tr>
+</table>
+</nav>
+</header>
+<table>
+<tr>
+<td>
+<section style="width: 50%; float: left;">
+<form action="prueba.php" method="post">
+<label for="inputNombre">Nombre:</label><input required = "required" type="text" name="inputNombre" placeholder="Nombre" id="inputNombre"></input>
+<br>
+<br>
+<label for="inputApellido">Apellido:</label><input required = "required" type="text" placeholder="Apellido" id="inputApellido" name="inputApellido"></input>
+<br>
+<br>
+<label for="inputDireccion">Direccion:</label><input required = "required" type="address" id="inputDireccion" placeholder="Direccion" name="inputDireccion"></input>
+<br>
+<br>
+<input type="submit" id="submit" value="submit"></input>
+</form>
+</section>
+<td>
+<section style="width: 50%; float : right;">
+
+<label for="inputBuscar">Buscar CI:</label><input id="inputBuscar" type="text"></input>
+<input id="inputBuscar" value= "Buscar" type="button" onclick="ver()"></input>
+<div id="content_div"></div>
+</section>
+</td>
+</tr>
+</table>
+</body>
+
+</HTML>
